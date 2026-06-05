@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Gabriel Bomfim - Senior Software Engineer</title>
+  <desc id="desc">Simple social preview for Gabriel Bomfim's portfolio.</desc>
+  <rect width="1200" height="630" fill="#07101f"/>
+  <path d="M90 120H1110M90 500H1110M210 70V560M970 70V560" stroke="#1d365a" stroke-width="1"/>
+  <path d="M90 360C260 280 400 430 560 350C740 260 860 310 1110 190" fill="none" stroke="#1687ff" stroke-width="5"/>
+  <circle cx="210" cy="360" r="9" fill="#03ce78"/>
+  <circle cx="560" cy="350" r="9" fill="#03ce78"/>
+  <circle cx="970" cy="236" r="9" fill="#03ce78"/>
+  <text x="90" y="230" fill="#f3f7fd" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="78" font-weight="800">Gabriel Bomfim</text>
+  <text x="94" y="305" fill="#55a7ff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="38" font-weight="700">Senior Software Engineer</text>
+  <text x="94" y="390" fill="#a4b2c8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30">PHP • Laravel • SaaS products • Enterprise integrations</text>
+</svg>
