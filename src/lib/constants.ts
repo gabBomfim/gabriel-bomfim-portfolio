@@ -9,7 +9,7 @@ export const SITE_URL =
 
 export const EMAIL = "gbr.bomfim@gmail.com";
 export const LINKEDIN_URL =
-  "https://www.linkedin.com/in/gabriel-bomfim-9b9b6a169";
+  "https://www.linkedin.com/in/gbr-bomfim";
 export const GITHUB_URL = "https://github.com/gabBomfim";
 export const ORCAFAST_URL = "https://www.orcafast.com.br/";
 
