@@ -20,11 +20,16 @@ export function ImageModal({ item, closeLabel, onClose }: ImageModalProps) {
     }
 
     function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButtonRef.current?.focus();
+      }
       if (event.key === "Escape") {
         onClose();
       }
     }
 
+    const trigger = document.activeElement as HTMLElement | null;
     closeButtonRef.current?.focus();
     document.body.classList.add("modal-open");
     window.addEventListener("keydown", onKeyDown);
@@ -32,6 +37,7 @@ export function ImageModal({ item, closeLabel, onClose }: ImageModalProps) {
     return () => {
       document.body.classList.remove("modal-open");
       window.removeEventListener("keydown", onKeyDown);
+      trigger?.focus({ preventScroll: true });
     };
   }, [item, onClose]);
 

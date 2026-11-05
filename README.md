@@ -66,7 +66,7 @@ Use the existing filenames so components keep working:
 The English resume is available at:
 
 ```text
-public/resume/gabriel-bomfim-resume-en.pdf
+public/resume/Gabriel_Bomfim_Resume.pdf
 ```
 
 The project is prepared for a Portuguese resume at:

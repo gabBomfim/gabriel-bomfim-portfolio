@@ -1,0 +1,204 @@
+/* Optional motion pass; the base layout stays in globals.css. */
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    --motion-out: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reading-progress {
+    transition: transform 110ms linear;
+  }
+
+  .hero-bottom[data-motion-seen="true"] > span {
+    animation: motion-rise 680ms var(--motion-out) both;
+  }
+  .hero-bottom[data-motion-seen="true"] > span:nth-child(2) {
+    animation-delay: 100ms;
+  }
+  .hero-bottom[data-motion-seen="true"] > span:nth-child(3) {
+    animation-delay: 200ms;
+  }
+
+  .visual-layers[data-motion-seen="true"] .visual-layer {
+    animation: motion-assemble 960ms var(--motion-out) both;
+  }
+  .visual-layers[data-motion-seen="true"] .visual-layer:nth-of-type(2) {
+    animation-delay: 145ms;
+  }
+  .visual-layers[data-motion-seen="true"] .visual-layer:nth-of-type(3) {
+    animation-delay: 290ms;
+  }
+  .editorial-visual[data-motion-seen="true"] .visual-signal,
+  .editorial-visual[data-motion-seen="true"] .visual-detail {
+    stroke-dasharray: 1;
+    animation: motion-trace 1050ms var(--motion-out) both;
+  }
+  .editorial-visual[data-motion-seen="true"] .visual-detail {
+    animation-delay: 380ms;
+  }
+  @supports (offset-path: path("M0 0L10 10")) {
+    .visual-packet {
+      fill: var(--tone);
+      pointer-events: none;
+    }
+    .editorial-visual[data-motion-in-view="true"] .visual-packet {
+      animation-name: motion-packet;
+      animation-duration: 3200ms;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  .project-art[data-motion-seen="true"] .art-code {
+    animation: motion-stamp 950ms var(--motion-out) both;
+  }
+  .project-art[data-motion-seen="true"] .art-name {
+    animation: motion-rise 620ms var(--motion-out) 120ms both;
+  }
+  .project-art[data-motion-seen="true"] .art-line {
+    animation: motion-rise 680ms var(--motion-out) 240ms both;
+  }
+
+  .case-details[data-motion-seen="true"] > div {
+    animation: motion-rise 680ms var(--motion-out) both;
+  }
+  .case-details[data-motion-seen="true"] > div:nth-child(2) {
+    animation-delay: 90ms;
+  }
+  .case-details[data-motion-seen="true"] > div:nth-child(3) {
+    animation-delay: 180ms;
+  }
+
+  .career-row {
+    transition:
+      border-color 360ms ease,
+      background-color 360ms ease;
+  }
+  .career-row::before {
+    transition:
+      scale 420ms var(--motion-out),
+      background-color 300ms ease,
+      border-color 300ms ease,
+      box-shadow 300ms ease;
+  }
+  .career-row[data-motion-current="true"] {
+    border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+    background-color: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+  .career-row[data-motion-current="true"]::before {
+    scale: 1.35;
+    border-color: var(--accent);
+    background-color: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+  .career-row[data-motion-seen="true"] .career-event {
+    animation: motion-rise 760ms var(--motion-out) 140ms both;
+  }
+
+  .architecture-node[aria-pressed="true"] .node-index {
+    animation: motion-stamp 460ms var(--motion-out) both;
+  }
+  .language-option {
+    transition:
+      background-color 240ms ease,
+      color 240ms ease;
+  }
+  .gallery-controls button {
+    transition:
+      translate 260ms var(--motion-out),
+      border-color 220ms ease;
+  }
+  .button:active,
+  .gallery-controls button:active,
+  .language-option:active {
+    scale: 0.96;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hero-portrait img {
+      transition:
+        translate 420ms var(--motion-out),
+        scale 720ms var(--motion-out);
+    }
+    .hero-portrait:hover img {
+      translate: var(--portrait-x, 0px) var(--portrait-y, 0px);
+      scale: 1.055;
+    }
+    .project-art {
+      transition:
+        translate 440ms var(--motion-out),
+        border-color 300ms ease;
+    }
+    .project:hover .project-art,
+    .project:focus-within .project-art {
+      translate: 0 -4px;
+    }
+    .gallery-item :is(.mockup-desktop, .mockup-phone) {
+      transition: scale 500ms var(--motion-out);
+    }
+    .gallery-item:hover :is(.mockup-desktop, .mockup-phone) {
+      scale: 1.035;
+    }
+    .gallery-controls button:first-child:hover {
+      translate: -3px 0;
+    }
+    .gallery-controls button:last-child:hover {
+      translate: 3px 0;
+    }
+  }
+}
+
+@keyframes motion-rise {
+  from {
+    opacity: 0.25;
+    translate: 0 13px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes motion-assemble {
+  from {
+    opacity: 0.2;
+    translate: 0 -28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes motion-trace {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes motion-packet {
+  0% {
+    opacity: 0;
+    offset-distance: 0%;
+  }
+  10% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  73%,
+  100% {
+    opacity: 0;
+    offset-distance: 100%;
+  }
+}
+@keyframes motion-stamp {
+  from {
+    opacity: 0.15;
+    translate: 13px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}

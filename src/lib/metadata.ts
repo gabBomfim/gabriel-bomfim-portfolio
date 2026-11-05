@@ -37,8 +37,8 @@ export const siteMetadata: Metadata = {
     images: ["/og-image.svg"],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: { url: "/favicon.svg?v=gb-2026", type: "image/svg+xml", sizes: "any" },
+    shortcut: "/favicon.svg?v=gb-2026",
+    apple: "/favicon.svg?v=gb-2026",
   },
 };

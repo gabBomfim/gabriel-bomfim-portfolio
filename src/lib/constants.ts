@@ -8,10 +8,8 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? FALLBACK_SITE_URL;
 
 export const EMAIL = "gbr.bomfim@gmail.com";
-export const LINKEDIN_URL =
-  "https://www.linkedin.com/in/gbr-bomfim";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/gbr-bomfim";
 export const GITHUB_URL = "https://github.com/gabBomfim";
-export const ORCAFAST_URL = "https://www.orcafast.com.br/";
 
-export const RESUME_EN_PATH = "/resume/gabriel-bomfim-resume-en.pdf";
+export const RESUME_EN_PATH = "/resume/Gabriel_Bomfim_Resume.pdf";
 export const RESUME_PT_BR_PATH = "/resume/gabriel-bomfim-resume-pt-br.pdf";

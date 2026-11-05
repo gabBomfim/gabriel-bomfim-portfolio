@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { siteMetadata } from "@/lib/metadata";
 
 import "./globals.css";
+import "./motion-enhancements.css";
 
 export const metadata = siteMetadata;
 

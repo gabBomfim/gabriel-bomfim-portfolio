@@ -17,6 +17,7 @@ export function MockupPhone({
 }: MockupPhoneProps) {
   return (
     <div className="mockup-phone" aria-label={alt}>
+      <span className="phone-speaker" aria-hidden="true" />
       <Image
         src={src}
         alt={alt}

@@ -1,9 +1,7 @@
 import type { Content } from "@/content/types";
 import Image from "next/image";
-import { ORCAFAST_URL } from "@/lib/constants";
 
 import { ProductGallery } from "@/components/product-gallery";
-import { Button } from "@/components/ui/button";
 import { MockupDesktop } from "@/components/ui/mockup-desktop";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Tag } from "@/components/ui/tag";
@@ -54,14 +52,6 @@ export function FeaturedProduct({ content }: FeaturedProductProps) {
               {featuredProduct.technologies.map((technology) => (
                 <Tag key={technology}>{technology}</Tag>
               ))}
-            </div>
-            <div className="product-actions">
-              <Button href={ORCAFAST_URL} target="_blank" rel="noreferrer" variant="primary">
-                {featuredProduct.primaryCta}
-              </Button>
-              <Button href={ORCAFAST_URL} target="_blank" rel="noreferrer">
-                {featuredProduct.secondaryCta}
-              </Button>
             </div>
           </div>
           <div className="product-preview" data-reveal>

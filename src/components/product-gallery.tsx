@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 import type { Content, GalleryItem } from "@/content/types";
 
@@ -15,10 +15,65 @@ type ProductGalleryProps = {
 export function ProductGallery({ gallery }: ProductGalleryProps) {
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
   const closeModal = useCallback(() => setActiveItem(null), []);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="gallery-shell" data-reveal>
-      <div className="gallery-track" aria-label={gallery.ariaLabel}>
+      <div className="gallery-controls">
+        <button
+          type="button"
+          title={
+            gallery.openLabel === "Open screenshot"
+              ? "Previous screenshots"
+              : "Capturas anteriores"
+          }
+          aria-label={
+            gallery.openLabel === "Open screenshot"
+              ? "Previous screenshots"
+              : "Capturas anteriores"
+          }
+          onClick={() =>
+            trackRef.current?.scrollBy({
+              left: -trackRef.current.clientWidth * 0.7,
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+            })
+          }
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          title={
+            gallery.openLabel === "Open screenshot"
+              ? "Next screenshots"
+              : "Próximas capturas"
+          }
+          aria-label={
+            gallery.openLabel === "Open screenshot"
+              ? "Next screenshots"
+              : "Próximas capturas"
+          }
+          onClick={() =>
+            trackRef.current?.scrollBy({
+              left: trackRef.current.clientWidth * 0.7,
+              behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                .matches
+                ? "instant"
+                : "smooth",
+            })
+          }
+        >
+          →
+        </button>
+      </div>
+      <div
+        ref={trackRef}
+        className="gallery-track"
+        aria-label={gallery.ariaLabel}
+      >
         {gallery.items.map((item) => (
           <button
             className={`gallery-item gallery-item-${item.kind}`}
